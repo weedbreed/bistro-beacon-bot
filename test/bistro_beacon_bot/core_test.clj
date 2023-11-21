@@ -9,7 +9,7 @@
 (use-fixtures :once fix/use-test-environment fix/setup-schema)
 
 (deftest core-test
-  (testing "Test common handler"
+  (testing "Main menu"
     (u/add :client-1)
 
     (c/send-text :client-1 "Hello!")

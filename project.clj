@@ -7,7 +7,7 @@
   :java-cmd "/opt/homebrew/opt/openjdk/bin/java"
 
   :dependencies [[org.clojure/clojure "1.11.1"]
-                 [cloregram "0.2.2"]]
+                 [cloregram "0.2.7"]]
 
   :plugins [[lein-eftest "0.6.0"]]
 
