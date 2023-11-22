@@ -10,8 +10,11 @@
 
 (deftest core-test
   (testing "Main menu"
-    (u/add :client-1)
+    (u/add :owner-1)
 
-    (c/send-text :client-1 "Hello!")
-    (-> (u/wait-main-message :client-1)
-        (i/check-text "HELLO!"))))
+    (c/send-text :owner-1 "/start")
+    (-> (u/wait-main-message :owner-1)
+        (i/check-text "Hello, owner-1!\n\nWelcome to Bistro Beacon Bot.\nWe are happy to provide the best management experience to you.")
+        (i/check-btns [["My Projects"]
+                       ["My Account"]
+                       ["F.A.Q."]]))))

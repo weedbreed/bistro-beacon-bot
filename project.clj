@@ -1,4 +1,4 @@
-(defproject bistro-beacon-bot "0.1.0-SNAPSHOT"
+(defproject bistro-beacon-bot "0.1.1"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
@@ -7,7 +7,7 @@
   :java-cmd "/opt/homebrew/opt/openjdk/bin/java"
 
   :dependencies [[org.clojure/clojure "1.11.1"]
-                 [cloregram "0.2.7"]]
+                 [cloregram "0.2.8"]]
 
   :plugins [[lein-eftest "0.6.0"]]
 
