@@ -14,7 +14,7 @@
 
     (c/send-text :owner-1 "/start")
     (-> (u/wait-main-message :owner-1)
-        (i/check-text "Hello, owner-1!\n\nWelcome to Bistro Beacon Bot.\nWe are happy to provide the best management experience to you.")
+        (i/check-text "Hello, owner-1!\n\nWelcome to Bistro Beacon Bot.\nWe are happy to provide the best bistro management experience to you.")
         (i/check-btns [["My Projects"]
                        ["My Account"]
                        ["F.A.Q."]]))))

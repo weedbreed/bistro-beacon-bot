@@ -1,0 +1,4 @@
+{:core {:main-menu {:msg {:en "Hello, %s!\n\nWelcome to Bistro Beacon Bot.\nWe are happy to provide the best bistro management experience to you."}
+                    :btns {:my-projects {:en "My Projects"}
+                           :my-account {:en "My Account"}
+                           :faq {:en "F.A.Q."}}}}}
