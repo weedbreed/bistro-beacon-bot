@@ -28,4 +28,14 @@
         (i/check-text "Hello, owner-1!\n\nWelcome to Bistro Beacon Bot.\nWe are happy to provide the best bistro management experience to you.")
         (i/check-btns [["My Projects"]
                        ["My Account"]
+                       ["F.A.Q."]])
+        (c/press-btn :owner-1 1 1))
+    (-> (u/wait-main-message :owner-1)
+        (i/check-text "You have 0 projects:")
+        (i/check-btns [["To Main Menu"]])
+        (c/press-btn :owner-1 1 1))
+    (-> (u/wait-main-message :owner-1)
+        (i/check-text "Hello, owner-1!\n\nWelcome to Bistro Beacon Bot.\nWe are happy to provide the best bistro management experience to you.")
+        (i/check-btns [["My Projects"]
+                       ["My Account"]
                        ["F.A.Q."]]))))

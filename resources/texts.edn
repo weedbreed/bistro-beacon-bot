@@ -4,4 +4,8 @@
                     :btns {:my-projects {:en "My Projects"}
                            :my-account {:en "My Account"}
                            :faq {:en "F.A.Q."}}}
+
+        :my-projects {:msg {:en "You have %d projects:"}
+                      :btns {:new-project "New Project"}}
+
         :faq {:msg {:en "*What is it?*\nBistro Beacon Bot\n\n*What is it for?*\nFor your comfort"}}}}
