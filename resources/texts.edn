@@ -1,4 +1,5 @@
-{:common {:btns {:to-main-menu {:en "To Main Menu"}}}
+{:common {:btns {:to-main-menu {:en "To Main Menu"}
+                 :back {:en "Back"}}}
 
  :core {:main-menu {:msg {:en "Hello, %s!\n\nWelcome to Bistro Beacon Bot.\nWe are happy to provide the best bistro management experience to you."}
                     :btns {:my-projects {:en "My Projects"}
@@ -6,6 +7,8 @@
                            :faq {:en "F.A.Q."}}}
 
         :my-projects {:msg {:en "You have %d projects:"}
-                      :btns {:new-project "New Project"}}
+                      :btns {:new-project {:en "New Project"}}}
 
+        :new-project {:msg {:en "*Yay!*\n\nYou are going to open new project. Please enter the name."}}
+        
         :faq {:msg {:en "*What is it?*\nBistro Beacon Bot\n\n*What is it for?*\nFor your comfort"}}}}
