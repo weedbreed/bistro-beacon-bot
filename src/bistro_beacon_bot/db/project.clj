@@ -5,15 +5,28 @@
 
 (defn get-projects-count
   [user]
-  (or (first (d/q '[:find (count ?p)
-                    :in $ ?user-id
-                    :where [?p :project/owner ?user-id]]
+  (or (ffirst (d/q '[:find (count ?p)
+                    :in $ ?u-id
+                    :where [?p :project/owner ?u-id]]
                   (db/db) (:user/id user)))
       0))
 
 (defn get-list
   [user]
-  (d/q '[:find ?p
-         :in $ ?user-id
-         :where [?p :project/owner ?user-id]]
-       (db/db) (:user/id user)))
+  (map first (d/q '[:find (pull ?p [*])
+                    :in $ ?user-id
+                    :where [?p :project/owner ?user-id]]
+                  (db/db) (:user/id user))))
+
+(defn is-name-free?
+  [user p-name]
+  (empty? (d/q '[:find ?p
+                 :in $ ?p-name ?u-id
+                 :where [?p :project/name ?p-name]
+                        [?p :project/owner ?u-id]]
+               (db/db) p-name (:user/id user))))
+
+(defn create!
+  [user p-name]
+  (d/transact (db/conn) [{:project/name p-name
+                          :project/owner (:user/id user)}]))

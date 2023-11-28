@@ -46,7 +46,19 @@
         (i/check-text "*Yay!*\n\nYou are going to open new project. Please enter the name.")
         (i/check-btns [["Back"]
                        ["To Main Menu"]]))
+    (c/send-text :owner-1 "Owner 1 Project 1")
+    (-> (u/wait-main-message :owner-1)
+        (i/check-text "🍾 *New project named \"Owner 1 Project 1\" created!*")
+        (i/check-btns [["Go To Project"]
+                       ["Back"]
+                       ["To Main Menu"]])
+        (c/press-btn :owner-1 2 1))
+    (-> (u/wait-main-message :owner-1)       
+        (i/check-text "You have 1 projects:")
+        (i/check-btns [["Owner 1 Project 1"]
+                       ["New Project"]
+                       ["To Main Menu"]]))
     
-    (Thread/sleep 1000)
+    (Thread/sleep 3000)
     (is (= 1 1))))
 

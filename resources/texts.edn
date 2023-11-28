@@ -11,4 +11,9 @@
 
         :new-project {:msg {:en "*Yay!*\n\nYou are going to open new project. Please enter the name."}}
         
-        :faq {:msg {:en "*What is it?*\nBistro Beacon Bot\n\n*What is it for?*\nFor your comfort"}}}}
+        :faq {:msg {:en "*What is it?*\nBistro Beacon Bot\n\n*What is it for?*\nFor your comfort"}}}
+
+ :project {:new {:wrong-name {:en "⛔ Name \"%s\" is *unavailable*! Please enter another one."}
+                 :created {:en "🍾 *New project named \"%s\" created!*"}}
+
+           :btns {:to-project {:en "Go To Project"}}}}
