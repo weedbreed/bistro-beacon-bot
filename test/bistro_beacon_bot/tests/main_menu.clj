@@ -50,7 +50,7 @@
     (c/send-text :owner-1 "Owner 1 Project 1")
 
     (-> (u/wait-main-message :owner-1)
-        (i/check-text "🍾 *New project named \"Owner 1 Project 1\" created!*")
+        (i/check-text "🍾 *New project named \"Owner 1 Project 1\" has been created!*")
         (i/check-btns [["Go To Project"] ; TODO: Test on second project!
                        ["Back"]
                        ["To Main Menu"]])

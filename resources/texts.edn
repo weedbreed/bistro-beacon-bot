@@ -14,11 +14,13 @@
         :faq {:msg {:en "*What is it?*\nBistro Beacon Bot\n\n*What is it for?*\nFor your comfort"}}}
 
  :project {:new {:wrong-name {:en "⛔ Name \"%s\" is *unavailable*! Please enter another one."}
-                 :created {:en "🍾 *New project named \"%s\" created!*"}
+                 :created {:en "🍾 *New project named \"%s\" has been created!*"}
                  :btns {:to-project {:en "Go To Project"}}}
 
            :home {:msg {:en "Home Menu of\n*\"%s\"*.\n\nSelect option below:"}
-                  :btns {:employees "Employees (%d)"
-                         :modules "Modules (%d)"
-                         :supplies "Supplies"
-                         :reports "Reports"}}}}
+                  :btns {:employees {:en "Employees (%d)"}
+                         :modules {:en "Modules (%d)"}
+                         :supplies {:en "Supplies"}
+                         :reports {:en "Reports"}}}
+
+           :btns {:project-home {:en "To Project Home"}}}}
