@@ -4,20 +4,24 @@
             [cloregram.db :as db]))
 
 (defn get-projects-count
-  "Returns count of User's Projects"
+  "Returns count of `user`'s Projects"
   [user]
   (or (ffirst (d/q '[:find (count ?p)
                      :in $ ?u-id
-                     :where [?p :project/owner ?u-id]]
+                     :where
+                     [?p :project/owner ?u]
+                     [?u :user/id ?u-id]]
                    (db/db) (:user/id user)))
       0))
 
 (defn get-list
-  "Returns list of User's Projects"
+  "Returns list of `user`'s Projects"
   [user]
   (map first (d/q '[:find (pull ?p [*])
                     :in $ ?user-id
-                    :where [?p :project/owner ?user-id]]
+                    :where
+                    [?p :project/owner ?u]
+                    [?u :user/id ?user-id]]
                   (db/db) (:user/id user))))
 
 (defn is-name-free?
@@ -31,7 +35,19 @@
                (db/db) p-name (:user/id user))))
 
 (defn create!
-  "Creates empty project for `user` with name `p-name`"
+  "Creates empty project for `user` with name `p-name`. Returns `:db/id` of new Project"
   [user p-name]
-  (d/transact (db/conn) [{:project/name p-name
-                          :project/owner (:user/id user)}]))
+  (let [tx-result (d/transact (db/conn) [{:db/id "pid"
+                                          :project/name p-name
+                                          :project/owner [:user/id (:user/id user)]}])]
+    (get-in tx-result [:tempids "pid"])))
+
+(defn load
+  "Returns Project's full info"
+  [user p-id]
+  (ffirst (d/q '[:find (pull ?p [*])
+                 :in $ ?u-id ?p
+                 :where
+                 [?p :project/owner ?u]
+                 [?u :user/id ?u-id]]
+               (db/db) (:user/id user) p-id)))

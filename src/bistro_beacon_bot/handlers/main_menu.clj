@@ -6,7 +6,7 @@
 
 (defn- project->btnrow
   [p]
-  [[(:project/name p) 'bistro-beacon-bot.handlers.project/home (:db/id p)]])
+  [[(:project/name p) 'bistro-beacon-bot.handlers.project/home {:project-id (:db/id p)}]])
 
 (defn my-projects
   [{:keys [user]}]
